@@ -1,9 +1,9 @@
-import React, { useState, useMemo } from "react";
-import { Header } from "./components/Header";
-import { VirtualizedGrid } from "./components/VirtualizedGrid";
-import { PhotoModal } from "./components/PhotoModal";
-import { generatePhotos } from "./utils/mockData";
-import { Photo } from "./types/photo";
+import React, { useState, useMemo } from 'react';
+import { Header } from './components/Header';
+import { VirtualizedGrid } from './components/VirtualizedGrid';
+import { PhotoModal } from './components/PhotoModal';
+import { generatePhotos } from './utils/mockData';
+import { Photo } from './types/photo';
 
 export const App: React.FC = () => {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);

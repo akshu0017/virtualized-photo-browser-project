@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Photo } from "../types/photo";
+import React, { useEffect } from 'react';
+import { Photo } from '../types/photo';
 
 interface PhotoModalProps {
   photo: Photo | null;
@@ -9,10 +9,10 @@ interface PhotoModalProps {
 export const PhotoModal: React.FC<PhotoModalProps> = ({ photo, onClose }) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === 'Escape') onClose();
     };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
   if (!photo) return null;

@@ -1,4 +1,4 @@
-import { Photo } from "../types/photo";
+import { Photo } from '../types/photo';
 
 export const generatePhotos = (count: number): Photo[] => {
   return Array.from({ length: count }, (_, index) => ({

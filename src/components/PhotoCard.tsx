@@ -1,5 +1,5 @@
-import React from "react";
-import { Photo } from "../types/photo";
+import React from 'react';
+import { Photo } from '../types/photo';
 
 interface PhotoCardProps {
   photo: Photo;
@@ -14,7 +14,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({ photo, onSelect }) => {
       tabIndex={0}
       role="button"
       onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
+        if (e.key === 'Enter' || e.key === ' ') {
           onSelect(photo);
         }
       }}

@@ -1,6 +1,6 @@
-import React, { useState, useRef, UIEvent } from "react";
-import { Photo } from "../types/photo";
-import { PhotoCard } from "./PhotoCard";
+import React, { useState, useRef, UIEvent } from 'react';
+import { Photo } from '../types/photo';
+import { PhotoCard } from './PhotoCard';
 
 interface VirtualizedGridProps {
   photos: Photo[];
@@ -30,7 +30,7 @@ export const VirtualizedGrid: React.FC<VirtualizedGridProps> = ({
   const startRow = Math.max(0, Math.floor(scrollTop / itemHeight) - 1);
   const endRow = Math.min(
     totalRows - 1,
-    Math.ceil((scrollTop + containerHeight) / itemHeight) + 1,
+    Math.ceil((scrollTop + containerHeight) / itemHeight) + 1
   );
 
   const visiblePhotos: { photo: Photo; index: number }[] = [];
@@ -48,9 +48,9 @@ export const VirtualizedGrid: React.FC<VirtualizedGridProps> = ({
       ref={containerRef}
       className="virtual-scroll-container"
       onScroll={handleScroll}
-      style={{ height: "80vh", overflowY: "auto", position: "relative" }}
+      style={{ height: '80vh', overflowY: 'auto', position: 'relative' }}
     >
-      <div style={{ height: `${totalHeight}px`, position: "relative" }}>
+      <div style={{ height: `${totalHeight}px`, position: 'relative' }}>
         {visiblePhotos.map(({ photo, index }) => {
           const row = Math.floor(index / itemsPerRow);
           const col = index % itemsPerRow;
@@ -62,13 +62,13 @@ export const VirtualizedGrid: React.FC<VirtualizedGridProps> = ({
             <div
               key={photo.id}
               style={{
-                position: "absolute",
+                position: 'absolute',
                 top: `${top}px`,
                 left,
                 width,
                 height: `${itemHeight}px`,
-                padding: "8px",
-                boxSizing: "border-box",
+                padding: '8px',
+                boxSizing: 'border-box',
               }}
             >
               <PhotoCard photo={photo} onSelect={onSelectPhoto} />
