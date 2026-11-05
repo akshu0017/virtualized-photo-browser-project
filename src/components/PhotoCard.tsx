@@ -1,29 +1,29 @@
 import React from 'react';
-import { Photo } from '../types/photo';
+import { PhotoCardProps } from '../types/photos';
 
-interface PhotoCardProps {
-  photo: Photo;
-  onSelect: (photo: Photo) => void;
-}
-
-export const PhotoCard: React.FC<PhotoCardProps> = ({ photo, onSelect }) => {
+export const PhotoCard: React.FC<PhotoCardProps> = ({ photo, onClick }) => {
   return (
     <div
-      className="photo-card"
-      onClick={() => onSelect(photo)}
-      tabIndex={0}
-      role="button"
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          onSelect(photo);
-        }
+      onClick={() => onClick(photo)}
+      style={{
+        cursor: 'pointer',
+        border: '1px solid #e2e8f0',
+        borderRadius: '8px',
+        overflow: 'hidden',
+        padding: '8px',
+        background: '#fff',
+        height: '100%',
+        boxSizing: 'border-box',
       }}
     >
-      <img src={photo.thumbnailUrl} alt={photo.title} loading="lazy" />
-      <div className="photo-info">
-        <h3>{photo.title}</h3>
-        <p>By {photo.author}</p>
-      </div>
+      <img
+        src={photo.thumbnailUrl}
+        alt={photo.title}
+        style={{ width: '100%', height: '110px', objectFit: 'cover', borderRadius: '4px' }}
+      />
+      <p style={{ fontSize: '11px', marginTop: '6px', textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' }}>
+        {photo.title}
+      </p>
     </div>
   );
 };
